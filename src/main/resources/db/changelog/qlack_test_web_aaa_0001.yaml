@@ -1,0 +1,670 @@
+databaseChangeLog:
+  - changeSet:
+      id: qlack_test_aaa_0001
+      author: Ioannis K. Mousmoutis
+      changes:
+        # Operations: CRUD + Administration
+        - insert:
+            tableName: aaa_operation
+            columns:
+              - column:
+                  name: id
+                  value: 6fa38099-1e9c-45f8-a1a7-a1f3bb3f1129
+              - column:
+                  name: name
+                  value: CREATE_PERMISSION
+              - column:
+                  name: description
+                  value: Create any object type
+              - column:
+                  name: dynamic
+                  valueBoolean: false
+              - column:
+                  name: dynamic_code
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_operation
+            columns:
+              - column:
+                  name: id
+                  value: 4555e0f0-cd92-4e06-9492-2687b592a628
+              - column:
+                  name: name
+                  value: READ_PERMISSION
+              - column:
+                  name: description
+                  value: Read any object type
+              - column:
+                  name: dynamic
+                  valueBoolean: false
+              - column:
+                  name: dynamic_code
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_operation
+            columns:
+              - column:
+                  name: id
+                  value: c84b7f4c-309d-4a66-bdbd-662763b98e79
+              - column:
+                  name: name
+                  value: EDIT_PERMISSION
+              - column:
+                  name: description
+                  value: Edit objects
+              - column:
+                  name: dynamic
+                  valueBoolean: false
+              - column:
+                  name: dynamic_code
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_operation
+            columns:
+              - column:
+                  name: id
+                  value: 829917c6-907a-43d9-a892-7f8e8d63871e
+              - column:
+                  name: name
+                  value: DELETE_PERMISSION
+              - column:
+                  name: description
+                  value: Delete objects
+              - column:
+                  name: dynamic
+                  valueBoolean: false
+              - column:
+                  name: dynamic_code
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_operation
+            columns:
+              - column:
+                  name: id
+                  value: b3ce2d76-88bb-4c80-b0f7-55af9abfc8c8
+              - column:
+                  name: name
+                  value: ADMINISTRATION_PERMISSION
+              - column:
+                  name: description
+                  value: Administration permission
+              - column:
+                  name: dynamic
+                  valueBoolean: false
+              - column:
+                  name: dynamic_code
+              - column:
+                  name: dbversion
+                  value: 1
+        # Groups: Data Manager + Search User + Administrator
+        - insert:
+            tableName: aaa_user_group
+            columns:
+              - column:
+                  name: id
+                  value: 9c6ffc96-3597-4c6d-99ba-dcb6afa80ee1
+              - column:
+                  name: name
+                  value: Data Manager
+              - column:
+                  name: description
+                  value: Users that can manage objects
+              - column:
+                  name: object_id
+              - column:
+                  name: parent
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_group
+            columns:
+              - column:
+                  name: id
+                  value: 322d4a48-cae4-4114-88ab-05da16db053e
+              - column:
+                  name: name
+                  value: Search User
+              - column:
+                  name: description
+                  value: Users that can search for objects
+              - column:
+                  name: object_id
+              - column:
+                  name: parent
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_group
+            columns:
+              - column:
+                  name: id
+                  value: fdaf47a0-463d-4a9a-a1f2-70898f57ea70
+              - column:
+                  name: name
+                  value: Administrator
+              - column:
+                  name: description
+                  value: Users that can are the administrators of the system
+              - column:
+                  name: object_id
+              - column:
+                  name: parent
+              - column:
+                  name: dbversion
+                  value: 1
+        # Groups - Operations: Data Manager
+        - insert:
+            tableName: aaa_user_group_has_operation
+            columns:
+              - column:
+                  name: id
+                  value: caa44513-ad43-424e-8c18-f62e6cc8addb
+              - column:
+                  name: user_group_id
+                  value: 9c6ffc96-3597-4c6d-99ba-dcb6afa80ee1
+              - column:
+                  name: operation # Create
+                  value: 6fa38099-1e9c-45f8-a1a7-a1f3bb3f1129
+              - column:
+                  name: resource_id
+              - column:
+                  name: deny
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_group_has_operation
+            columns:
+              - column:
+                  name: id
+                  value: d557aafc-cf70-4b95-a8ab-b548f1135ae5
+              - column:
+                  name: user_group_id
+                  value: 9c6ffc96-3597-4c6d-99ba-dcb6afa80ee1
+              - column:
+                  name: operation # Read
+                  value: 4555e0f0-cd92-4e06-9492-2687b592a628
+              - column:
+                  name: resource_id
+              - column:
+                  name: deny
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_group_has_operation
+            columns:
+              - column:
+                  name: id
+                  value: e84ff9a2-7150-40f3-b1b8-363a26db229f
+              - column:
+                  name: user_group_id
+                  value: 9c6ffc96-3597-4c6d-99ba-dcb6afa80ee1
+              - column:
+                  name: operation # Edit
+                  value: c84b7f4c-309d-4a66-bdbd-662763b98e79
+              - column:
+                  name: resource_id
+              - column:
+                  name: deny
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_group_has_operation
+            columns:
+              - column:
+                  name: id
+                  value: 8f20a22d-5c7a-4301-a4dc-35d4dc57df27
+              - column:
+                  name: user_group_id
+                  value: 9c6ffc96-3597-4c6d-99ba-dcb6afa80ee1
+              - column:
+                  name: operation # Delete
+                  value: 829917c6-907a-43d9-a892-7f8e8d63871e
+              - column:
+                  name: resource_id
+              - column:
+                  name: deny
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        # Groups - Operations: Search User
+        - insert:
+            tableName: aaa_user_group_has_operation
+            columns:
+              - column:
+                  name: id
+                  value: 6f7de917-17d3-42a9-9b12-0205c8fec993
+              - column:
+                  name: user_group_id
+                  value: 322d4a48-cae4-4114-88ab-05da16db053e
+              - column:
+                  name: operation # Read
+                  value: 4555e0f0-cd92-4e06-9492-2687b592a628
+              - column:
+                  name: resource_id
+              - column:
+                  name: deny
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        # Groups - Operations: Administrator
+        - insert:
+            tableName: aaa_user_group_has_operation
+            columns:
+              - column:
+                  name: id
+                  value: 8da5c714-031f-4a45-8a8c-f3adc470ff94
+              - column:
+                  name: user_group_id
+                  value: fdaf47a0-463d-4a9a-a1f2-70898f57ea70
+              - column:
+                  name: operation # Create
+                  value: 6fa38099-1e9c-45f8-a1a7-a1f3bb3f1129
+              - column:
+                  name: resource_id
+              - column:
+                  name: deny
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_group_has_operation
+            columns:
+              - column:
+                  name: id
+                  value: cad347c0-9f9b-4386-9ccb-12041b3c62b1
+              - column:
+                  name: user_group_id
+                  value: fdaf47a0-463d-4a9a-a1f2-70898f57ea70
+              - column:
+                  name: operation # Read
+                  value: 4555e0f0-cd92-4e06-9492-2687b592a628
+              - column:
+                  name: resource_id
+              - column:
+                  name: deny
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_group_has_operation
+            columns:
+              - column:
+                  name: id
+                  value: 9cb29272-1ee3-4759-b042-27ff494422ce
+              - column:
+                  name: user_group_id
+                  value: fdaf47a0-463d-4a9a-a1f2-70898f57ea70
+              - column:
+                  name: operation # Edit
+                  value: c84b7f4c-309d-4a66-bdbd-662763b98e79
+              - column:
+                  name: resource_id
+              - column:
+                  name: deny
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_group_has_operation
+            columns:
+              - column:
+                  name: id
+                  value: 9616902b-5d9c-4033-986b-f7f3fd05ea03
+              - column:
+                  name: user_group_id
+                  value: fdaf47a0-463d-4a9a-a1f2-70898f57ea70
+              - column:
+                  name: operation # Delete
+                  value: 829917c6-907a-43d9-a892-7f8e8d63871e
+              - column:
+                  name: resource_id
+              - column:
+                  name: deny
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_group_has_operation
+            columns:
+              - column:
+                  name: id
+                  value: 41726e01-c179-4c91-a186-f4f4eabd9b3c
+              - column:
+                  name: user_group_id
+                  value: fdaf47a0-463d-4a9a-a1f2-70898f57ea70
+              - column:
+                  name: operation # Admin
+                  value: b3ce2d76-88bb-4c80-b0f7-55af9abfc8c8
+              - column:
+                  name: resource_id
+              - column:
+                  name: deny
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        # Users: DataManager1
+        - insert:
+            tableName: aaa_user
+            columns:
+              - column:
+                  name: id
+                  value: a5365bad-a99d-4c79-bbce-c9cbba0b9e69
+              - column:
+                  name: username
+                  value: datamanager1
+              - column:
+                  name: pswd
+                  value: $2a$10$Rz5eaBgYPZXLRcturffwcOfntaoQqIX21X.D6Z1ZHmKPf8EetE9Z6
+              - column:
+                  name: status
+                  value: 1
+              - column:
+                  name: superadmin
+                  valueBoolean: false
+              - column:
+                  name: external
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_attributes
+            columns:
+              - column:
+                  name: id
+                  value: 520d791b-ec9f-4eb7-99b2-f5d9d58db893
+              - column:
+                  name: user_id
+                  value: a5365bad-a99d-4c79-bbce-c9cbba0b9e69
+              - column:
+                  name: name
+                  value: email
+              - column:
+                  name: data
+                  value: datamanager1@localhost.com
+              - column:
+                  name: bindata
+              - column:
+                  name: content_type
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_attributes
+            columns:
+              - column:
+                  name: id
+                  value: 1ea7471e-5d07-4a37-ad0a-2e3b40e6974e
+              - column:
+                  name: user_id
+                  value: a5365bad-a99d-4c79-bbce-c9cbba0b9e69
+              - column:
+                  name: name
+                  value: firstName
+              - column:
+                  name: data
+                  value: data
+              - column:
+                  name: bindata
+              - column:
+                  name: content_type
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_attributes
+            columns:
+              - column:
+                  name: id
+                  value: 925ffe99-c8aa-407d-93bd-998fd45c46d0
+              - column:
+                  name: user_id
+                  value: a5365bad-a99d-4c79-bbce-c9cbba0b9e69
+              - column:
+                  name: name
+                  value: lastName
+              - column:
+                  name: data
+                  value: manager
+              - column:
+                  name: bindata
+              - column:
+                  name: content_type
+              - column:
+                  name: dbversion
+                  value: 1
+        # Users - Groups: DataManager1
+        - insert:
+            tableName: aaa_user_has_group
+            columns:
+              - column:
+                  name: user_id
+                  value: a5365bad-a99d-4c79-bbce-c9cbba0b9e69
+              - column:
+                  name: user_group_id
+                  value: 9c6ffc96-3597-4c6d-99ba-dcb6afa80ee1
+        # Users: SearchUSer
+        - insert:
+            tableName: aaa_user
+            columns:
+              - column:
+                  name: id
+                  value: 42b7c932-3f8f-46d0-bd03-d76b4bb71b98
+              - column:
+                  name: username
+                  value: searchuser
+              - column:
+                  name: pswd
+                  value: $2a$10$Rz5eaBgYPZXLRcturffwcOfntaoQqIX21X.D6Z1ZHmKPf8EetE9Z6
+              - column:
+                  name: status
+                  value: 1
+              - column:
+                  name: superadmin
+                  valueBoolean: false
+              - column:
+                  name: external
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_attributes
+            columns:
+              - column:
+                  name: id
+                  value: fcb1a999-efdc-4af1-99dc-5be6d4a327dc
+              - column:
+                  name: user_id
+                  value: 42b7c932-3f8f-46d0-bd03-d76b4bb71b98
+              - column:
+                  name: name
+                  value: email
+              - column:
+                  name: data
+                  value: usersearch@localhost.com
+              - column:
+                  name: bindata
+              - column:
+                  name: content_type
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_attributes
+            columns:
+              - column:
+                  name: id
+                  value: acd5b339-95b8-40f5-842a-92d050d0a499
+              - column:
+                  name: user_id
+                  value: 42b7c932-3f8f-46d0-bd03-d76b4bb71b98
+              - column:
+                  name: name
+                  value: firstName
+              - column:
+                  name: data
+                  value: search
+              - column:
+                  name: bindata
+              - column:
+                  name: content_type
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_attributes
+            columns:
+              - column:
+                  name: id
+                  value: 451de081-ea26-4d5f-84b8-dbb6dcb0cd3f
+              - column:
+                  name: user_id
+                  value: 42b7c932-3f8f-46d0-bd03-d76b4bb71b98
+              - column:
+                  name: name
+                  value: lastName
+              - column:
+                  name: data
+                  value: user
+              - column:
+                  name: bindata
+              - column:
+                  name: content_type
+              - column:
+                  name: dbversion
+                  value: 1
+        # Users - Groups: SearchUser
+        - insert:
+            tableName: aaa_user_has_group
+            columns:
+              - column:
+                  name: user_id
+                  value: 42b7c932-3f8f-46d0-bd03-d76b4bb71b98
+              - column:
+                  name: user_group_id
+                  value: 322d4a48-cae4-4114-88ab-05da16db053e
+        # Users: Admin
+        - insert:
+            tableName: aaa_user
+            columns:
+              - column:
+                  name: id
+                  value: e09455f9-3541-4bcf-b6dc-58e12cb42e8c
+              - column:
+                  name: username
+                  value: admin
+              - column:
+                  name: pswd
+                  value: $2a$10$Rz5eaBgYPZXLRcturffwcOfntaoQqIX21X.D6Z1ZHmKPf8EetE9Z6
+              - column:
+                  name: status
+                  value: 1
+              - column:
+                  name: superadmin
+                  valueBoolean: false
+              - column:
+                  name: external
+                  valueBoolean: false
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_attributes
+            columns:
+              - column:
+                  name: id
+                  value: 4c0b66df-edc7-49ad-9783-c36d59fafb86
+              - column:
+                  name: user_id
+                  value: e09455f9-3541-4bcf-b6dc-58e12cb42e8c
+              - column:
+                  name: name
+                  value: email
+              - column:
+                  name: data
+                  value: admin@localhost.com
+              - column:
+                  name: bindata
+              - column:
+                  name: content_type
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_attributes
+            columns:
+              - column:
+                  name: id
+                  value: a0b4a293-cfc7-4ffc-a14a-56f856b7e515
+              - column:
+                  name: user_id
+                  value: e09455f9-3541-4bcf-b6dc-58e12cb42e8c
+              - column:
+                  name: name
+                  value: firstName
+              - column:
+                  name: data
+                  value: admin
+              - column:
+                  name: bindata
+              - column:
+                  name: content_type
+              - column:
+                  name: dbversion
+                  value: 1
+        - insert:
+            tableName: aaa_user_attributes
+            columns:
+              - column:
+                  name: id
+                  value: fb1d3aa2-0fd3-4da1-8b2c-388c260818b9
+              - column:
+                  name: user_id
+                  value: e09455f9-3541-4bcf-b6dc-58e12cb42e8c
+              - column:
+                  name: name
+                  value: lastName
+              - column:
+                  name: data
+                  value: admin
+              - column:
+                  name: bindata
+              - column:
+                  name: content_type
+              - column:
+                  name: dbversion
+                  value: 1
+        # Users - Groups
+        - insert:
+            tableName: aaa_user_has_group
+            columns:
+              - column:
+                  name: user_id
+                  value: e09455f9-3541-4bcf-b6dc-58e12cb42e8c
+              - column:
+                  name: user_group_id
+                  value: fdaf47a0-463d-4a9a-a1f2-70898f57ea70
