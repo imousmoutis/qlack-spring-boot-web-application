@@ -23,6 +23,8 @@
                     <li ng-class="{'active': homePageActive}"><a href="#/">Home</a></li>
                     <li ng-class="{'active': loginPageActive}" ng-if="!userIsLogged"><a href="#/login">Login</a></li>
                     <li ng-class="{'active': operationsPageActive}" ng-if="userIsLogged"><a href="#/operations">Operations</a></li>
+                    <li ng-class="{'active': fileuploadPageActive}" ng-if="userIsLogged"><a
+                        href="#/fileupload">File Upload</a></li>
                     <li ng-if="userIsLogged"><a style="cursor:pointer;" data-ng-click="logout()">Logout</a></li>
                 </ul>
             </div>
@@ -33,7 +35,8 @@
 
     <footer class="footer">
         <div class="container">
-            <p class="text-muted">©2019 <a href="https://gr.linkedin.com/in/imousmoutis" target="_blank">Ioannis K. Mousmoutis</a></p>
+            <p class="text-muted">©2019 <a href="https://github.com/eurodyn/QLACK"
+                                           target="_blank">QLACK</a></p>
         </div>
     </footer>
 
@@ -46,6 +49,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/particles.js"></script>
+    <!-- concatenated flow.js + ng-flow libraries -->
+    <script src="../js/ng-flow-standalone.js"></script>
 
 </body>
 </html>

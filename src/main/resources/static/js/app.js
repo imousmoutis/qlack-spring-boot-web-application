@@ -1,19 +1,23 @@
-var app = angular.module('qlackApp',['ngRoute','ngStorage']);
+var app = angular.module('qlackApp',['ngRoute','ngStorage','flow']);
 
 app.constant('urls', {
-    BASE: 'http://localhost:8080/qlack_fuse_demo_war_exploded/'
+    BASE: 'http://localhost:8080/'
 });
 
-app.config(['$routeProvider', '$httpProvider', '$locationProvider',
-    function($routeProvider, $httpProvider, $locationProvider) {
+app.config(['$routeProvider', '$httpProvider', '$locationProvider', "flowFactoryProvider",
+    function($routeProvider, $httpProvider, $locationProvider, flowFactoryProvider) {
 
     $locationProvider.hashPrefix('');
 
     $routeProvider
         .when('/', {
-            templateUrl : 'views/home.html',
-            controller: 'HomeController'
+          templateUrl : 'views/home.html',
+          controller: 'HomeController'
         })
+        .when('/fileupload', {
+          templateUrl : 'views/fileupload.html',
+          controller: 'FileUploadController'
+         })
         .when('/login',{
             templateUrl: 'views/login.html',
             controller: 'LoginController',
@@ -36,9 +40,28 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         })
         .otherwise({ redirectTo: '/'});
 
+      // # #####################################################################
+      // # Configure file upload
+      // # #####################################################################
+
+      flowFactoryProvider.defaults = {
+        target: "/file-upload/upload",
+        permanentErrors: [404, 500, 501],
+        maxChunkRetries: 1,
+        chunkRetryInterval: 5000,
+        simultaneousUploads: 4,
+        generateUniqueIdentifier: function() {
+          return "xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+            var r, v;
+            r = Math.random() * 16 | 0;
+            v = (c === "x" ? r : r & 0x3 | 0x8);
+            return v.toString(16);
+          });
+        }
+      };
 }]);
 
-app.controller('QlackAppController', function($scope, $rootScope, $localStorage, $http, urls) {
+app.controller('QlackAppController', function($scope, $rootScope, $localStorage, $http, urls, $location) {
     $scope.onloadFun = function() {
        if($localStorage.jwt){
            $rootScope.userIsLogged = true;
@@ -68,6 +91,15 @@ app.controller('HomeController', function($rootScope) {
     $rootScope.homePageActive = true;
     $rootScope.loginPageActive = false;
     $rootScope.operationsPageActive = false;
+    $rootScope.fileuploadPageActive = false;
+});
+
+app.controller('FileUploadController', function($rootScope) {
+  $rootScope.title = "File Upload Page";
+  $rootScope.homePageActive = false;
+  $rootScope.loginPageActive = false;
+  $rootScope.operationsPageActive = false;
+  $rootScope.fileuploadPageActive = true;
 });
 
 app.controller('LoginController', function($scope, $rootScope, $http, urls, $localStorage, $location) {
@@ -75,6 +107,7 @@ app.controller('LoginController', function($scope, $rootScope, $http, urls, $loc
     $rootScope.homePageActive = false;
     $rootScope.loginPageActive = true;
     $rootScope.operationsPageActive = false;
+    $rootScope.fileuploadPageActive = false;
     $scope.wrongCredentials = false;
 
     $scope.login = function(){
@@ -101,6 +134,7 @@ app.controller('OperationsController', function($scope, $rootScope, $http, urls,
     $rootScope.homePageActive = false;
     $rootScope.loginPageActive = false;
     $rootScope.operationsPageActive = true;
+    $rootScope.fileuploadPageActive = false;
 
     function getUsers(){
         $http({

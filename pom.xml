@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.eurodyn.qlack</groupId>
     <artifactId>qlack-test-web</artifactId>
     <packaging>war</packaging>
 
@@ -35,6 +34,25 @@
             <artifactId>qlack-fuse-security</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.eurodyn.qlack.fuse</groupId>
+            <artifactId>qlack-fuse-fileupload</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.eurodyn.qlack.fuse</groupId>-->
+<!--            <artifactId>qlack-fuse-fileupload-III</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.eurodyn.qlack.fuse</groupId>
+            <artifactId>qlack-fuse-security</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- Spring Boot dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -50,16 +68,24 @@
             <version>5.1.4.RELEASE</version>
         </dependency>
 
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.15</version>
+      </dependency>
+      <dependency>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-core</artifactId>
+        <version>3.6.3</version>
+      </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>${liquibase.version}</version>
-        </dependency>
+
 
     </dependencies>
 
