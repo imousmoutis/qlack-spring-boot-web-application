@@ -4,7 +4,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <include file="db/changelog/qlack.fuse.aaa.changelog.xml"/>
-    <include file="db/changelog/qlack.fuse.fileupload.changelog.xml"/>
+    <include file="db/changelog/qlack-fuse-aaa/qlack.fuse.aaa.changelog.xml"/>
+    <include file="db/changelog/qlack-fuse-fileupload/qlack.fuse.fileupload.changelog.xml"/>
     <include file="db/changelog/qlack_test_web_aaa_0001.yaml"/>
 </databaseChangeLog>

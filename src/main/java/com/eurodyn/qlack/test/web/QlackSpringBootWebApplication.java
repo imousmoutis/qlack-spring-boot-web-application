@@ -19,16 +19,17 @@ import org.springframework.scheduling.annotation.EnableScheduling;
     "com.eurodyn.qlack.fuse.aaa",
     "com.eurodyn.qlack.fuse.security",
     "com.eurodyn.qlack.test.web",
-    "com.eurodyn.qlack.fuse.fileupload",
-    "com.eurodyn.qlack.fuse.fileupload.service",
-    "com.eurodyn.qlack.fuse.fileupload.service.impl"
+    "com.eurodyn.qlack.fuse.fileupload"
 })
 
 public class QlackSpringBootWebApplication {
 
-  public static void main(String[] args) {
-    SpringApplication app = new SpringApplication(QlackSpringBootWebApplication.class);
-    app.setBannerMode(Banner.Mode.OFF);
-    app.run(args);
-  }
+    public static void main(String[] args) {
+        SpringApplication app = new SpringApplication(QlackSpringBootWebApplication.class);
+        app.setBannerMode(Banner.Mode.OFF);
+        app.run(args);
+    }
+
+
+
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.11.1.xsd">
+
+  <api-classes>
+    <include pattern="com.eurodyn.qlack.test.web.controller.**"/>
+    <include pattern="com.eurodyn.qlack.fuse.aaa.dto.**"/>
+  </api-classes>
+
+  <modules>
+    <jackson1 disabled="true"/>
+    <jaxb disabled="true"/>
+    <jaxws disabled="true"/>
+    <idl disabled="true"/>
+    <c-xml-client disabled="true"/>
+    <csharp-xml-client disabled="true"/>
+    <java-xml-client disabled="true"/>
+    <java-json-client disabled="true"/>
+    <gwt-json-overlay disabled="true"/>
+    <obj-c-xml-client disabled="true"/>
+    <php-xml-client disabled="true"/>
+    <php-json-client disabled="true"/>
+    <ruby-json-client disabled="true"/>
+    <jaxrs disabled="true"/>
+    <javascript-client disabled="true"/>
+
+    <spring-web disabled="false"/>
+    <swagger disabled="false" basePath="/qlack_fuse_demo_war_exploded"/>
+  </modules>
+
+</enunciate>

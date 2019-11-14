@@ -1,7 +1,7 @@
 package com.eurodyn.qlack.test.web.controller;
 
-import com.eurodyn.qlack.fuse.aaa.annotations.annotation.ResourceAccess;
-import com.eurodyn.qlack.fuse.aaa.annotations.annotation.ResourceOperation;
+import com.eurodyn.qlack.fuse.aaa.annotation.ResourceAccess;
+import com.eurodyn.qlack.fuse.aaa.annotation.ResourceOperation;
 import com.eurodyn.qlack.fuse.aaa.dto.UserDTO;
 import com.eurodyn.qlack.fuse.aaa.dto.UserDetailsDTO;
 import com.eurodyn.qlack.fuse.aaa.service.UserService;
@@ -73,7 +73,7 @@ public class UserController {
       })
   public String createUser(@RequestBody UserDTO user) {
 
-    return userService.createUser(user);
+    return userService.createUser(user, null);
   }
 
 }
