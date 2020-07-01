@@ -1,6 +1,5 @@
 package com.eurodyn.qlack.test.web.controller;
 
-import com.eurodyn.qlack.test.web.dto.TempDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,13 +22,4 @@ public class IndexController {
     return "index";
   }
 
-  /**
-   * Test javadoc
-   * @return tt
-   */
-  @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  @ResponseBody
-  public TempDTO test(@PathVariable String id) {
-    return new TempDTO();
-  }
 }

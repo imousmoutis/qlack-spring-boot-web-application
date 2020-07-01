@@ -17,7 +17,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EntityScan({"com.eurodyn.qlack.fuse.aaa.model", "com.eurodyn.qlack.fuse.fileupload.model"})
 @ComponentScan(basePackages = {
     "com.eurodyn.qlack.fuse.aaa",
-    "com.eurodyn.qlack.fuse.security",
+    "com.eurodyn.qlack.util.jwt",
     "com.eurodyn.qlack.test.web",
     "com.eurodyn.qlack.fuse.fileupload"
 })
